@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pig Latin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function translatePigLatin(str) {
+        var pigLatin = "";
+        var checkVowel = /[aeiou]/gi;
+        if(str.match(checkVowel) === null){ 
+            pigLatin = str + "ay";
+        }         
+        else { console.log('eee');
+            for(var i = 0; i < str.length ; i++) {
+                var index = str.indexOf(str.match(checkVowel)[0]);
+                if(index === 0) {
+                    pigLatin = str + "way";
+                } else {
+                    pigLatin = str.slice(index) + str.slice(0, index) + 'ay'; 
+
+                }
+                console.log(index);
+              
+            }
+       
+        }
+        return pigLatin;
+      }
+      
+      console.log("Hey, you working?");
+
+      console.log(translatePigLatin("fteeef"));
+    </script>
+  </body>
+</html>
