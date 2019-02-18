@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Missing Letters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function fearNotLetter(str) {
+        for(var i =1; i < str.length; i++) {
+          //Loop over the string and then find out if the difference between the adjacent characters
+          //is more than 1. If it is more than one return the adjacent character plus 1 where we found the gap. 
+          if(str.charCodeAt(i) - str.charCodeAt(i-1) > 1) {
+            return String.fromCharCode(str.charCodeAt(i-1) + 1)
+          }
+        }
+      }
+      console.log(fearNotLetter("abce"));
+      fearNotLetter("abce");
+    </script>
+  </body>
+</html>
