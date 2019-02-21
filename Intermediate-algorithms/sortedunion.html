@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sorted Union</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      //   function uniteUnique(...arrays) {
+      //     let flatArray = [].concat(...arrays);
+
+      //     return [...new Set(flatArray)];
+      //   }
+
+      //Solution 2
+      //   function uniteUnique(arr1, arr2, arr3) {
+      //     var newArray = [];
+      //     for (let i = 0; i < arguments.length; i++) {
+      //       var arrayArguments = arguments[i];
+
+      //       for (let j = 0; j < arrayArguments.length; j++) {
+      //         var indexValue = arrayArguments[j];
+
+      //         if (newArray.indexOf(indexValue) < 0) {
+      //           newArray.push(indexValue);
+      //         }
+      //       }
+      //     }
+      //     return newArray;
+      //   }
+      //   console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+      //   uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+      //Solution 3
+      //   function uniteUnique(arr) {
+      //       let args = [...arguments];
+      //       let newArray = [];
+      //       for( let i = 0; i < args.length; i++) {
+      //           for( let j =0; j < args[i].length; j++) {
+      //               if(!newArray.includes(args[i][j])) {
+      //                   newArray.push(args[i][j]);
+      //               }
+      //           }
+      //       }
+      //     return newArray;
+      //   }
+
+      //   uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+      //Solution 4
+      function uniteUnique(arr1, arr2, arr3) {
+          var newArray;
+          //You have to convert an arguments object into an array
+          var args = Array.prototype.slice.call(arguments);
+          //Using reduce function flatten the array
+          newArray = args.reduce(function(arrA, arrB){
+              //Apply filter to remove the duplicate elements in the array
+              return arrA.concat(arrB.filter(function(i) {
+                  return arrA.indexOf(i) === -1;
+              }));
+          });
+        return newArray;
+      }
+
+      uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+    </script>
+  </body>
+</html>
