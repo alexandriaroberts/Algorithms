@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Convert HTML entities</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function convertHTML(str) {
+        // &colon;&rpar;
+        let html = {
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        '\'':"&apos;"
+        };
+        return str.split('').map(entity  => html[entity] || entity).join('');
+      }
+
+      convertHTML("Dolce & Gabbana");
+    </script>
+  </body>
+</html>
