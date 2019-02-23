@@ -8,19 +8,23 @@
   </head>
   <body>
     <script>
-      function convertHTML(str) {
-        // &colon;&rpar;
-        let html = {
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        '"':'&quot;',
-        '\'':"&apos;"
-        };
-        return str.split('').map(entity  => html[entity] || entity).join('');
-      }
+    //   function convertHTML(str) {
+    //     // &colon;&rpar;
+    //     let html = {
+    //     '&':'&amp;',
+    //     '<':'&lt;',
+    //     '>':'&gt;',
+    //     '"':'&quot;',
+    //     '\'':"&apos;"
+    //     };
+    //     return str.split('').map(entity  => html[entity] || entity).join('');
+    //   }
 
-      convertHTML("Dolce & Gabbana");
+    //   convertHTML("Dolce & Gabbana");
+
+    function convertHTML(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+    }
     </script>
   </body>
 </html>
