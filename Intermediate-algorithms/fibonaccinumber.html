@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sum All Odd Fibonacci Numbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function sumFibs(num) {
+          //First we declare variables previous and current to track their values while looping with result variable
+          let previousNumber = 0;
+          let currentNumber = 1;
+          let result = 0;
+          debugger;
+          //Using while loop check if the current number is less than or equal to num
+          while(currentNumber <= num) {
+              //if current number is less than or equal to num, check if it is an odd number
+                if(currentNumber % 2 !== 0) {
+                    //if it's an odd number, add the value with results and store it in the results.
+                    result += currentNumber;
+                }
+                //add the previous number value to the current number 
+                currentNumber += previousNumber;
+                previousNumber = currentNumber - previousNumber;
+
+            }
+
+        return result;
+      }
+      console.log(sumFibs(4));
+      sumFibs(4);
+    </script>
+  </body>
+</html>
