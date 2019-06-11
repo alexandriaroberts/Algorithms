@@ -10,25 +10,23 @@
     <script>
       function rot13(str) {
         // LBH QVQ VG!
-       
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let newStr = "";
-     
+
         for (let i = 0; i < str.length; i++) {
-         let character = str[i];
-         let index = alphabet.indexOf(character);
-         // if the index is -1 it leaves the character as it is
-         if(index !== -1) {
-             // use modulo operator to get the value of index
+          let character = str[i];
+          let index = alphabet.indexOf(character);
+          // if the index is -1 it leaves the character as it is
+          if (index !== -1) {
+            // use modulo operator to get the value of index
             index = (index - 13 + alphabet.length) % alphabet.length;
             // The character then becomes the index of the alphabet
             character = alphabet[index];
-            
-         }
-         // character is added to newStr string
-         newStr += character;
+          }
+          // character is added to newStr string
+          newStr += character;
         }
-        
+
         return newStr;
       }
 
