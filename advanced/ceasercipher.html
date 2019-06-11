@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Caesars Cipher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function rot13(str) {
+        // LBH QVQ VG!
+       debugger;
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let newStr = "";
+     
+        for (let i = 0; i < str.length; i++) {
+         let character = str[i];
+         let index = alphabet.indexOf(character);
+         // if the index is -1 it leaves the character as it is
+         if(index !== -1) {
+             // use modulo operator to get the value of index
+            index = (index - 13 + alphabet.length) % alphabet.length;
+            // The character then becomes the index of the alphabet
+            character = alphabet[index];
+            
+         }
+         // character is added to newStr string
+         newStr += character;
+        }
+        
+        return newStr;
+      }
+
+      // Change the inputs below to test
+      rot13("FREE PIZZA!");
+    </script>
+  </body>
+</html>
