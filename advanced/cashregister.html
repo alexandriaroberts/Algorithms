@@ -1,0 +1,113 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cash Register</title>
+  </head>
+  <body>
+    <script>
+         let denom = [
+        { name: "ONE HUNDRED", val: 100.0 },
+        { name: "TWENTY", val: 20.0 },
+        { name: "TEN", val: 10.0 },
+        { name: "FIVE", val: 5.0 },
+        { name: "ONE", val: 1.0 },
+        { name: "QUARTER", val: 0.25 },
+        { name: "DIME", val: 0.1 },
+        { name: "NICKEL", val: 0.05 },
+        { name: "PENNY", val: 0.01 }
+      ];
+      function checkCashRegister(price, cash, cid) {
+        let response = {
+          status: "",
+          change: []
+        };
+        let change = cash  - price ;
+        //console.log(change);
+
+        let cashRegister = cid.reduce(
+          function(accumulator, currentValue) {
+            accumulator.total += currentValue[1];
+            accumulator[currentValue[0]] = currentValue[1];
+            return accumulator;
+          },
+          { total: 0 }
+        );
+
+        //console.log(cashRegister)
+
+        // Handle exact change
+        if (cashRegister.total === change) {
+          response.status = "CLOSED";
+          response.change = cid;
+          return response;
+        }
+
+        // Handle obvious insufficient funds
+        if (cashRegister.total < change) {
+          response.status = "INSUFFICIENT_FUNDS";
+          return response;
+        }
+    
+        let changeRecord = denom.reduce(function(accumulator, currentValue) {
+            debugger;
+          let value = 0;
+     
+          while (cashRegister[currentValue.name] > 0 && change >= currentValue.val) {
+            change = change-currentValue.val;
+            cashRegister[currentValue.name] = cashRegister[currentValue.name] - currentValue.val;
+            value = value + currentValue.val;
+          
+            change = Math.round(change * 100) / 100;
+          }
+          
+          if (value > 0) {
+            accumulator.push([currentValue.name, value]);
+          }
+          return accumulator; 
+        }, []); // Initial value of empty array for reduce
+
+        // If there are no elements in changeRecord or we have leftover change, return
+        // the string "Insufficient Funds"
+        if (changeRecord.length < 1 || change > 0) {
+          response.status = "INSUFFICIENT_FUNDS";
+          return response;
+        }
+
+       // console.log(changeRecord)
+       
+        response.status = "OPEN";
+        response.change = changeRecord;
+        return response;
+      }
+
+ 
+      console.log(
+        checkCashRegister(20, 26.01, [
+          ["PENNY", 1.01],
+          ["NICKEL", 2.05],
+          ["DIME", 3.1],
+          ["QUARTER", 4.25],
+          ["ONE", 90],
+          ["FIVE", 55],
+          ["TEN", 20],
+          ["TWENTY", 60],
+          ["ONE HUNDRED", 100]
+        ])
+      );
+
+      checkCashRegister(19.5, 20, [
+        ["PENNY", 1.01],
+        ["NICKEL", 2.05],
+        ["DIME", 3.1],
+        ["QUARTER", 4.25],
+        ["ONE", 90],
+        ["FIVE", 55],
+        ["TEN", 20],
+        ["TWENTY", 60],
+        ["ONE HUNDRED", 100]
+      ]);
+    </script>
+  </body>
+</html>

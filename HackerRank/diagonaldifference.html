@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Diagonal difference (Matrix)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+        function diagonalDifference(arr) {
+    // Write your code here
+    const diagonalOne = arr.reduce((total, currentValue, index, array) => total + array[index][index], 0);
+    console.log(diagonalOne)
+    const diagonalTwo = arr.reduce((total, currentValue, index, array) => total + array[index][array.length - 1 - index], 0);
+    console.log(diagonalTwo)
+   return Math.abs(diagonalOne - diagonalTwo)
+}
+
+    </script>
+  </body>
+</html>
