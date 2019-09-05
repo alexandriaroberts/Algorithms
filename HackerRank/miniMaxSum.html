@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Min Max sum from an array</title>
+  </head>
+  <body>
+    <script>
+      function miniMaxSum(arr) {
+        let sum = arr.reduce((a, b) => a + b);
+
+        let minValue = Math.min(...arr);
+        let minScore = sum - minValue;
+        let maxValue = Math.max(...arr);
+        let maxScore = sum - maxValue;
+
+        console.log(maxScore, minScore);
+      }
+    </script>
+  </body>
+</html>
