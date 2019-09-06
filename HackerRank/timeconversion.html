@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Conversion</title>
+</head>
+<body>
+    <script>
+    function timeConversion(s) {
+   //Tod: Practice more of ternerary operators
+    let array = s.slice(0, 8).split(":");
+    console.log(s.indexOf('PM'))
+    array[0] = (s.indexOf('PM') > -1) ? (array[0] == 12 ? '12' : Number(array[0]) + 12) : (array[0] == 12 ? '00' : array[0]);
+  
+    return array.join(':');
+}
+
+    </script>
+</body>
+</html>
