@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Picking Number</title>
+</head>
+<body>
+    <script>
+    function pickingNumbers(a) {
+    
+    let newArray = [];
+    let newObject = {};
+    let largest = 0;
+    for (let i = 0; i < a.length; i++) {
+
+        if (!newObject[a[i]]) {
+            newObject[a[i]] = 1;
+
+        } else {
+            newObject[a[i]] = newObject[a[i]] + 1;
+
+        }
+
+    }
+
+    Object.keys(newObject).forEach(count => {
+        let value = parseInt(count);
+        let next = value + 1;
+
+        if (newObject[next]) {
+           
+            let sumOfCounts = newObject[value] + newObject[next];
+
+            console.log(newObject[value], newObject[next] )
+
+            if (sumOfCounts > largest) {
+                largest = sumOfCounts
+            }
+        }
+
+    });
+
+     console.log(largest);
+    return largest;
+}
+
+    </script>
+</body>
+</html>
