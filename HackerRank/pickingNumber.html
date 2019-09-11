@@ -22,7 +22,7 @@
             newObject[a[i]] = newObject[a[i]] + 1;
 
         }
-
+        
     }
  // Test case 7 and 8 needs to be worked on. All other test cases passed. 
     Object.keys(newObject).forEach(count => {
@@ -38,6 +38,8 @@
             if (sumOfCounts > largest) {
                 largest = sumOfCounts
             }
+        } else {
+            largest = newObject[value]
         }
 
     });
@@ -45,6 +47,7 @@
      console.log(largest);
     return largest;
 }
+pickingNumbers([60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60])
 
     </script>
 </body>
