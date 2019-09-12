@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Breaking the records</title>
+  </head>
+  <body>
+    <script>
+      function breakingRecords(scores) {
+        let bestCurrentScore = scores[0];
+        let worstCurrentScore = scores[0];
+
+        let bestScore = 0;
+        let worstScore = 0;
+        for (let i = 0; i < scores.length; i++) {
+          //  console.log(scores[i])
+
+          if (bestCurrentScore < scores[i]) {
+            bestCurrentScore = scores[i];
+
+            bestScore++;
+          } else if (worstCurrentScore > scores[i]) {
+            worstCurrentScore = scores[i];
+            worstScore++;
+          }
+        }
+        console.log(bestScore, worstScore);
+        return [bestScore, worstScore];
+      }
+    </script>
+  </body>
+</html>
