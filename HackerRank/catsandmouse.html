@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cats and a Mouse</title>
+  </head>
+  <body>
+    <script>
+      function catAndMouse(x, y, z) {
+        const distanceCatA = Math.abs(x - z);
+        const distanceCatB = Math.abs(y - z);
+        if (distanceCatB === distanceCatA) {
+          return "Mouse C";
+        } else if (distanceCatA < distanceCatB) {
+          return "Cat A";
+        } else {
+          return "Cat B";
+        }
+      }
+    </script>
+  </body>
+</html>
