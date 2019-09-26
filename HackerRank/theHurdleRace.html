@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>The Hurdle Race</title>
+  </head>
+  <body>
+    <script>
+      function hurdleRace(k, height) {
+        const maxHurdle = Math.max(...height);
+
+        if (k > maxHurdle) {
+          return 0;
+        } else {
+          const doses = Math.abs(maxHurdle - k);
+          console.log(doses);
+          return doses;
+        }
+      }
+    </script>
+  </body>
+</html>
