@@ -9,17 +9,27 @@
   <body>
     <script>
       function divisibleSumPairs(n, k, ar) {
-        let nk = 0;
-        for (let i = 0; i <= n; i++) {
-          if (ar[i] < ar[i + 1] && (ar[i] + ar[i + 1]) / k) {
-            nk++;
-          } else if (ar[i + 1] < ar[i] && (ar[i] + ar[i + 1]) / k) {
-            nk++;
-          }
-        }
-        console.log(nk);
-        return nk;
-      }
+   let nk;
+   let count = 0;
+for(let i = 0; i <=n ; i++){
+    // if(ar[i] < ar[i+1] && (ar[i] + ar[i+1])/k){
+    //     nk++;
+    // } else if(ar[i+1] < ar[i] && (ar[i] + ar[i+1])/k){
+    //         nk++;
+    // }
+   for(let j = 0; j < n ; j++){
+       if(i < j) {
+           nk = ar[i] + ar[j];
+           if( nk % k === 0) {
+               count++;
+           }
+       }
+   }
+}
+
+ return count;
+}
+
     </script>
   </body>
 </html>
