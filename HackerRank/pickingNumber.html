@@ -1,54 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Picking Number</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-    function pickingNumbers(a) {
-    
-    let newArray = [];
-    let newObject = {};
-    let largest = 0;
-    for (let i = 0; i < a.length; i++) {
-
-        if (!newObject[a[i]]) {
+      function pickingNumbers(a) {
+        let newArray = [];
+        let newObject = {};
+        let largest = 0;
+        for (let i = 0; i < a.length; i++) {
+          if (!newObject[a[i]]) {
             newObject[a[i]] = 1;
-
-        } else {
+          } else {
             newObject[a[i]] = newObject[a[i]] + 1;
-
+          }
         }
-        
-    }
- // Test case 7 and 8 needs to be worked on. All other test cases passed. 
-    Object.keys(newObject).forEach(count => {
-        let value = parseInt(count);
-        let next = value + 1;
+        // Test case 7 and 8 needs to be worked on. All other test cases passed.
+        Object.keys(newObject).forEach(count => {
+          let value = parseInt(count);
+          let next = value + 1;
 
-        if (newObject[next]) {
-           
+          if (newObject[next]) {
             let sumOfCounts = newObject[value] + newObject[next];
 
-            console.log(newObject[value], newObject[next] )
+            console.log(newObject[value], newObject[next]);
 
             if (sumOfCounts > largest) {
-                largest = sumOfCounts
+              largest = sumOfCounts;
             }
-        } else {
-            largest = newObject[value]
-        }
+          } else {
+            largest = newObject[value];
+          }
+        });
 
-    });
-
-     console.log(largest);
-    return largest;
-}
-pickingNumbers([60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60 ,60])
-
+        console.log(largest);
+        return largest;
+      }
+      pickingNumbers([
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ]);
     </script>
-</body>
+  </body>
 </html>

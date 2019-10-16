@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Migratory Birds</title>
+  </head>
+  <body>
+    <script>
+      function migratoryBirds(arr) {
+        let birdTypes = {};
+
+        arr.forEach(key => {
+          if (!birdTypes[key]) {
+            birdTypes[key] = 1;
+          } else {
+            birdTypes[key]++;
+          }
+        });
+        console.log(birdTypes);
+        let birdTypeId = 1000;
+        let count = 0;
+
+        for (let key in birdTypes) {
+          //for key that is bigger than value
+          if (birdTypes[key] > count) {
+            count = birdTypes[key];
+            birdTypeId = key;
+          }
+          //for key that is same
+          //check if birdTypesId is less than the current bird Id
+          else if (birdTypes[key] == count) {
+            if (birdTypeId > key) {
+              birdTypeId = key;
+            }
+          }
+        }
+        return birdTypeId;
+      }
+    </script>
+  </body>
+</html>
