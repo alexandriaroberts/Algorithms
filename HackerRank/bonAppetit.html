@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bon Appétit</title>
+</head>
+<body>
+    <script>
+    function bonAppetit(bill, k, b) {
+    let briansDish = bill[k];
+    const billSum = bill.reduce( (i , j) => i + j );
+    let annasBill = (billSum - briansDish) / 2;
+    let briansBill = annasBill + briansDish;
+    if ( b === annasBill) {
+        console.log("Bon Appetit");
+    } else {
+        let refund =  b - annasBill;
+        console.log(refund);
+    }
+    }
+    </script>
+</body>
+</html>
