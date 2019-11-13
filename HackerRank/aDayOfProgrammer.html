@@ -19,6 +19,24 @@
         }
         }
         console.log(dayOfProgrammer(1980));
+
+        //Work on the solution
+        // Complete the dayOfProgrammer function below.
+        function dayOfProgrammer(year) {
+            Date.isLeapYear = function(year) { 
+            return (((year % 4 === 0) && (year % 100 !== 0)) || (year%400 === 0)); 
+        };
+        if ((Date.isLeapYear(year) === true)) {
+        return "12.09." + year;
+        } else if (year == 1918){
+            return "26.09.1918";
+        } else {
+            return "13.09." + year;
+        }
+
+
+
+        }
     </script>
 </body>
 </html>
