@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counting Valleys</title>
+</head>
+<body>
+    <script>
+   //Solution 1
+   function countingValleys(n, s) {
+    // let stringSplit = s.split('');
+    // console.log(stringSplit);
+
+    let valley = 0;
+    let currentLevel = 0;
+
+    for(let i =0; i <= n ; i++){
+        let charecter = s.charAt(i);
+        if(charecter == "U"){
+            currentLevel++;
+            if(currentLevel == 0){
+            valley++;
+        }
+        } else {
+            currentLevel--;
+
+        }
+
+
+    }
+
+    console.log(valley);
+    return valley;
+    }
+
+
+    //Solution 2
+
+    function countingValleys(n, s) {
+    let stringSplit = s.split('');
+    // console.log(stringSplit);
+
+    let valley = 0;
+    let currentLevel = 0;
+
+    for(let i =0; i <= n ; i++){
+    
+        if(stringSplit[i] == "U"){
+            currentLevel++;
+            
+        } else {
+            currentLevel--;
+
+        }
+
+    if(currentLevel == 0 && stringSplit[i] == "U"){
+            valley++;
+        }
+    }
+
+    console.log(valley);
+    return valley;
+    }
+
+    </script>
+</body>
+</html>
